@@ -2,6 +2,7 @@ package com.example.guru2
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -23,6 +24,7 @@ class FeedActivity : AppCompatActivity() {
     lateinit var bookmark : ImageView
     private var bookmarkClicked : Boolean = true
 
+    lateinit var plus : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,13 +67,19 @@ class FeedActivity : AppCompatActivity() {
             bookmarkClicked = ! bookmarkClicked
         }
 
-
         // comment로부터 댓글 갯수 받아와서 숫자 늘리기
         chat_text= findViewById(R.id.chat_text)
         val commentCount = intent.getIntExtra("comment_count", 0)
         // 현재 댓글 갯수를 TextView에 표시
         chat_text.text = commentCount.toString()
 
+
+        //plus 누르면 write 페이지로
+        plus = findViewById(R.id.plus)
+        plus.setOnClickListener {
+            val intent = Intent(this, WriteActivity::class.java)
+            startActivity(intent)
+        }
 
         //하단 네이게이션 바
         bottomNavigationView = findViewById(R.id.bottom_navigation_menu)

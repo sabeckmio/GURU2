@@ -95,6 +95,8 @@ class FeedActivity : AppCompatActivity() {
                 }
                 R.id.navigation_my -> {
                     // My 메뉴 항목이 선택된 경우의 동작
+                    val intent = Intent(this, MyPage::class.java)
+                    startActivity(intent)
                     true
                 }
                 else -> false

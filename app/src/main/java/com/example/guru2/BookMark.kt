@@ -15,5 +15,4 @@ class BookMark : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.book_mark)
     }
-
 }
